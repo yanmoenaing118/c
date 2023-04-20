@@ -10,7 +10,7 @@ int main()
 
     while ((ch = getchar()) != EOF)
     {
-        if (ch == ' ' || ch == '\n')
+        if (ch == ' ' || ch == '\n' || ch == '\t')
         {
             is_found_a_word = 0;
         }
