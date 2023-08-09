@@ -1,20 +1,26 @@
 #include <stdio.h>
 
-int main() {
+int main()
+{
+	long nl;
 	int c;
+	int prevChar;
 
-	if(EOF == -1) {
-		printf("EOF is -1\n");
+	nl = 0;
+	printf("Enter sentences\n");
+
+	while ((c = getchar()) != EOF)
+	{
+		if (c == '\n')
+			++nl;
+		prevChar = c;
 	}
 
-	c = getchar() == EOF;
+	if( c == EOF && prevChar != '\n') {
+		++nl;
+	}
 
-	if(c ==0) {
-		printf("This is not EOF %d\n", c);
-	}
-	if(c == 1) {
-		printf("This is EOF %d\n", c);
-	}
+	printf("%ld\n", nl);
+
 	return 0;
 }
-
