@@ -1,26 +1,33 @@
 #include <stdio.h>
 
+
+#define IN 1
+#define OUT -1
+
 int main()
 {
 	long nl;
 	int c;
-	int prevChar;
+	int STATE;
 
-	nl = 0;
-	printf("Enter sentences\n");
+	long bl;
 
-	while ((c = getchar()) != EOF)
+	nl = bl = 0;
+	STATE = OUT;
+
+
+	while( (c = getchar()) != EOF ) 
 	{
-		if (c == '\n')
-			++nl;
-		prevChar = c;
+		if( c == '\n' || c == ' ' || c == '\t')
+		{ 
+			STATE = OUT;
+		} else if( STATE == OUT ) {
+			STATE = IN;
+			++bl;
+		}
 	}
 
-	if( c == EOF && prevChar != '\n') {
-		++nl;
-	}
-
-	printf("%ld\n", nl);
+	printf("Total World Count: %ld\n", bl);
 
 	return 0;
 }
