@@ -6,28 +6,35 @@
 
 int main()
 {
-	long nl;
-	int c;
-	int STATE;
+	int ch, i, nwhite, nothers;
+	int ndigit[10];
 
-	long bl;
+	nwhite = nothers = i = 0;
 
-	nl = bl = 0;
-	STATE = OUT;
+	for(i = 0; i < 10; ++i) ndigit[i] = 0;
 
-
-	while( (c = getchar()) != EOF ) 
+	while((ch = getchar()) != EOF) 
 	{
-		if( c == '\n' || c == ' ' || c == '\t')
-		{ 
-			STATE = OUT;
-		} else if( STATE == OUT ) {
-			STATE = IN;
-			++bl;
+
+		if( ch >= '0' && ch <= '9' ) 
+		{
+			ndigit[ch - '0']++;
+		} else if ( ch == ' ' || ch == '\n' || ch == '\t')
+		{
+			nwhite++;
+		} else {
+			nothers++;
 		}
+
 	}
 
-	printf("Total World Count: %ld\n", bl);
+	printf("Digits:\n");
 
+	for(i = 0 ; i < 10; i++)
+	{
+		printf("occurance of %i = %d, \n",i, ndigit[i]);
+	}
+
+	printf("white space = %d, others = %d\n", nwhite, nothers);
 	return 0;
 }
