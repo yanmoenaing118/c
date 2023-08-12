@@ -39,12 +39,12 @@ int main()
             }
             STATE = IN;
             ++word_counts[word_index];
-            // putchar('#');
+            putchar('#');
         }
         else
         {
             STATE = OUT;
-            // putchar('\n');
+            putchar('\n');
         }
     }
 
