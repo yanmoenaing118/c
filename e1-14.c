@@ -7,6 +7,10 @@ int main()
 
     int ch;
     int nchars[TOTAL_ASCII_CHARS];
+    int longest;
+    int chars;
+
+    longest = chars = 0;
 
     for (int i = 0; i < TOTAL_ASCII_CHARS; i++)
         nchars[i] = 0;
@@ -30,6 +34,7 @@ int main()
         }
         printf("\n");
     }
+
 
     return 0;
 }
