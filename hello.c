@@ -1,40 +1,30 @@
 #include <stdio.h>
 
-
-#define IN 1
-#define OUT -1
+int power(int, int);
 
 int main()
 {
-	int ch, i, nwhite, nothers;
-	int ndigit[10];
 
-	nwhite = nothers = i = 0;
+	printf("2 power table\n");
 
-	for(i = 0; i < 10; ++i) ndigit[i] = 0;
-
-	while((ch = getchar()) != EOF) 
+	for(int i = 0; i < 13; i++)
 	{
 
-		if( ch >= '0' && ch <= '9' ) 
-		{
-			ndigit[ch - '0']++;
-		} else if ( ch == ' ' || ch == '\n' || ch == '\t')
-		{
-			nwhite++;
-		} else {
-			nothers++;
-		}
+		printf("2 x %2d = %5d\n",i, power(-2, i));
 
 	}
 
-	printf("Digits:\n");
+}
 
-	for(i = 0 ; i < 10; i++)
+
+int power(int base, int power) 
+{
+	int i, p;
+	p = 1;
+	for(i = 0 ; i < power; i++)
 	{
-		printf("occurance of %i = %d, \n",i, ndigit[i]);
+		p = p * base;
 	}
 
-	printf("white space = %d, others = %d\n", nwhite, nothers);
-	return 0;
+	return p;
 }
