@@ -14,8 +14,8 @@ int main()
 	get_line(line);
 	copy(line, longest);
 
-	printf("%s\n", line);
-	printf("%s\n", longest);
+	printf("%s", line);
+	printf("%s", longest);
 
 	return 0;
 }
@@ -43,6 +43,5 @@ int get_line(char line[])
 void copy(char from[], char to[])
 {
 	int i = 0;
-	while ((to[i] = from[i++]) != '\0')
-		;
+	while ((to[i] = from[i]) != '\0') i++;
 }
