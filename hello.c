@@ -1,29 +1,48 @@
 #include <stdio.h>
 
-int power(int, int);
+#define MAX_LINE 1000
+
+int get_line(char line[]);
+void copy(char from[],char to[]);
 
 int main()
 {
 
-	printf("2 power table\n");
+	char line[MAX_LINE];
+	char longest[MAX_LINE];
 
-	for(int i = 0; i < 13; i++)
-	{
+	get_line(line);
+	copy(line, longest);
 
-		printf("2 x %2d = %5d\n",i, power(-2, i));
+	printf("%s\n", line);
+	printf("%s\n", longest);
 
-	}
-
+	return 0;
 }
 
-
-int power(int base, int power) 
+int get_line(char line[])
 {
-	int p;
-	for(p = 1 ; power > 0; power--)
+	int ch;
+	int i = 0;
+	for (i = 0; i < MAX_LINE - 1 && (ch = getchar()) != '\n'; i++)
 	{
-		p = p * base;
+		line[i] = ch;
 	}
 
-	return p;
+	if (ch == '\n')
+	{
+		line[i] = ch;
+		i++;
+	}
+
+	line[i] = '\0';
+
+	return i;
+}
+
+void copy(char from[], char to[])
+{
+	int i = 0;
+	while ((to[i] = from[i]) != '\0')
+		;
 }
