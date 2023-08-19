@@ -10,12 +10,22 @@ int main()
 
 	char line[MAX_LINE];
 	char longest[MAX_LINE];
+	int max = 0;
+	int length = 0;
 
-	get_line(line);
-	copy(line, longest);
-
-	printf("%s", line);
+	
+	while (( length = (get_line(line)) > 1))
+	{
+		if(length > max) 
+		{
+			max = length;
+			copy(line, longest);
+		}
+	}
+	
+	printf("longest sentence\n");
 	printf("%s", longest);
+
 
 	return 0;
 }
