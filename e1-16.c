@@ -18,15 +18,10 @@ int main()
     {
         if (len > max)
         {
-            max = len;
+            printf("%s", line);
         }
-        int j = 0;
-        while (j < MAX_LENGTH)
-        {
-            putchar(line[j]);
-            j++;
-        }
-        
+
+        max = len;
     }
 
     return 0;
