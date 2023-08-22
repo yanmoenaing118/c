@@ -11,19 +11,21 @@ int main()
     int len = 0;
     char line[MAX_LINE];
 
-    while((len = get_line(line, MAX_LINE)) > 0 ) {
-        printf("%s %d\n", line, len);
+    while ((len = get_line(line, MAX_LINE)) > 0)
+    {
+        printf("%s %d", line, len);
     }
-    
+
     return 0;
 }
 
-
-int get_line(char line[], int limit) {
+int get_line(char line[], int limit)
+{
     int i = 0;
     int j = 0;
     int c;
-    for(i = 0 ; i < limit - 1 && (c = getchar()) != '\n' && c != EOF; i++ ) {
+    for (i = 0; i < limit - 1 && (c = getchar()) != '\n' && c != EOF; i++)
+    {
         line[i] = c;
     }
 
@@ -34,24 +36,14 @@ int get_line(char line[], int limit) {
         j--;
     }
 
-    if(line[i - 1] != '\t' && line[i - 1] != ' ') {
-        if(c == '\n') {
-            line[i] = c;
-            i++;
-        }
-        line[i] = '\0';
-    } else {
-        i = j;
+    i = j;
 
-        line[++i] = '\n';
-        line[++i] = '\0';
-    }
-    
+    line[i] = '\n';
+    line[++i] = '\0';
+
     return i;
-    
 }
 
-
-void copy(char from[], char to[]){
-
+void copy(char from[], char to[])
+{
 }
