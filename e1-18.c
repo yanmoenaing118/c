@@ -4,6 +4,7 @@
 
 int get_line(char line[], int limit);
 void copy(char from[], char to[]);
+void reverse(char line[]);
 
 int main()
 {
@@ -46,4 +47,17 @@ int get_line(char line[], int limit)
 
 void copy(char from[], char to[])
 {
+    int i = 0;
+    while ((to[i] = from[i]) != '\0')
+    {
+        i++;
+    }
+    
+}
+
+void reverse(char line[]) {
+    int len = 0;
+    int i = 0;
+    int copyied[MAX_LINE];
+    
 }
