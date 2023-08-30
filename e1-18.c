@@ -14,7 +14,9 @@ int main()
 
     while ((len = get_line(line, MAX_LINE)) > 0)
     {
-        printf("%s %d", line, len);
+        printf("%s", line);
+        reverse(line);
+        printf("%s", line);
     }
 
     return 0;
@@ -58,8 +60,24 @@ void copy(char from[], char to[])
 void reverse(char line[]) {
     int len = 0;
     int i = 0;
-    int copyied[MAX_LINE];
+    int j = 0;
+    char copyied[MAX_LINE];
 
-    
-    
+    while (line[i] != '\n')
+    {
+        i++;
+    }
+
+    --i;
+
+    for (j = 0; j <= i; j++)
+    {
+        copyied[j] = line[i - j];
+    }
+
+    copyied[j] = '\n';
+    j++;
+    copyied[j] = '\0';
+
+    copy(copyied, line);
 }
