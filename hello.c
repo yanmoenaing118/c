@@ -63,6 +63,7 @@ int get_line()
 void copy()
 {
 	int i = 0;
+	extern char longest[], line[];
 	while ((longest[i] = line[i]) != '\n')
 		i++;
 }
