@@ -24,6 +24,10 @@ int main()
     return 0;
 }
 
+
+/**
+ * remove blank and trailing characters
+*/
 int get_line(char line[], int limit)
 {
     int i = 0;
@@ -57,29 +61,4 @@ void copy(char from[], char to[])
         i++;
     }
     
-}
-
-void reverse(char line[]) {
-    int len = 0;
-    int i = 0;
-    int j = 0;
-    char copyied[MAX_LINE];
-
-    while (line[i] != '\n')
-    {
-        i++;
-    }
-
-    --i;
-
-    for (j = 0; j <= i; j++)
-    {
-        copyied[j] = line[i - j];
-    }
-
-    copyied[j] = '\n';
-    j++;
-    copyied[j] = '\0';
-
-    copy(copyied, line);
 }
