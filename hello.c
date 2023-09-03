@@ -2,56 +2,73 @@
 
 #define MAX_LINE 1000
 
-int get_line(char line[]);
-void copy(char from[],char to[]);
+/**
+ * External variables are defined which can be accessed by any functions
+ * This set aside the storage for it.
+ */
+int max;
+char line[MAX_LINE];
+char longest[MAX_LINE];
+
+int get_line();
+void copy();
+void print_longest_line_length();
 
 int main()
 {
 
-	char line[MAX_LINE];
-	char longest[MAX_LINE];
-	int max = 0;
-	int length = 0;
+	int len = 0;
+	extern int max;
 
-	
-	while (( length = (get_line(line)) > 1))
+	max = 0;
+
+	while ((len = get_line()) > 0)
 	{
-		if(length > max) 
+
+		if (len > max)
 		{
-			max = length;
-			copy(line, longest);
+			max = len;
+			copy();
 		}
 	}
-	
-	printf("longest sentence\n");
+
+	printf("Max line is \n");
 	printf("%s", longest);
 
+	print_longest_line_length();
 
 	return 0;
 }
 
-int get_line(char line[])
+int get_line()
 {
-	int ch;
 	int i = 0;
-	for (i = 0; i < MAX_LINE - 1 && (ch = getchar()) != '\n'; i++)
+	int c;
+
+	while ((c = getchar()) != '\n' && c != EOF)
 	{
-		line[i] = ch;
+		line[i++] = c;
 	}
 
-	if (ch == '\n')
+	if (c == '\n')
 	{
-		line[i] = ch;
+		line[i] = '\n';
 		i++;
 	}
 
 	line[i] = '\0';
-
 	return i;
 }
 
-void copy(char from[], char to[])
+void copy()
 {
 	int i = 0;
-	while ((to[i] = from[i]) != '\0') i++;
+	while ((longest[i] = line[i]) != '\n')
+		i++;
 }
+
+void print_longest_line_length() {
+	printf("LONGEST LINE LENGTH: %d\n", max);
+}
+
+
