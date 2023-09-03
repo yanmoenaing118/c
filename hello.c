@@ -6,7 +6,6 @@
  * External variables are defined which can be accessed by any functions
  * This set aside the storage for it.
  */
-int max;
 char line[MAX_LINE];
 char longest[MAX_LINE];
 
@@ -72,5 +71,6 @@ void print_longest_line_length(void) {
 	extern int max;
 	printf("LONGEST LINE LENGTH: %d\n", max);
 }
+
 
 
