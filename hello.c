@@ -68,6 +68,7 @@ void copy()
 }
 
 void print_longest_line_length() {
+	extern int max;
 	printf("LONGEST LINE LENGTH: %d\n", max);
 }
 
