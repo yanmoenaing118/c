@@ -10,9 +10,9 @@ int max;
 char line[MAX_LINE];
 char longest[MAX_LINE];
 
-int get_line();
-void copy();
-void print_longest_line_length();
+int get_line(void);
+void copy(void);
+void print_longest_line_length(void);
 
 int main()
 {
@@ -40,7 +40,7 @@ int main()
 	return 0;
 }
 
-int get_line()
+int get_line(void)
 {
 	int i = 0;
 	int c;
@@ -60,7 +60,7 @@ int get_line()
 	return i;
 }
 
-void copy()
+void copy(void)
 {
 	int i = 0;
 	extern char longest[], line[];
@@ -68,7 +68,7 @@ void copy()
 		i++;
 }
 
-void print_longest_line_length() {
+void print_longest_line_length(void) {
 	extern int max;
 	printf("LONGEST LINE LENGTH: %d\n", max);
 }
