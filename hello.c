@@ -1,3 +1,10 @@
-#include<stdio.h>
+#include <stdio.h>
 
-int get_one();int main() {printf("Hello World\n"); printf("%d\n", get_one()); return 0;}int get_one() { return 1;}
+int main() {
+
+    long double num = 999999999999999.09;
+
+    printf("%Lf\n", num);
+
+    return 0;
+}
