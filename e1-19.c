@@ -14,12 +14,12 @@ int main()
     char test[10] = "yanmoe\n";   
 
     printf("%s", test);
-    // while ((len = get_line(line, MAX_LINE)) > 0)
-    // {
-    //     printf("%s", line);
-    //     reverse(line);
-    //     printf("%s", line);
-    // }
+    while ((len = get_line(line, MAX_LINE)) > 0)
+    {
+        printf("%s", line);
+        reverse(line);
+        printf("%s", line);
+    }
 
     return 0;
 }
