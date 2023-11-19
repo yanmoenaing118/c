@@ -2,7 +2,7 @@
 
 #define MAX_LINE 1000
 #define TOTAL_TABS 100
-#define TAP_SPACES 3
+#define TAP_SPACES 4
 
 
 int getstring(char line[]);
