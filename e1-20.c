@@ -56,5 +56,18 @@ void copy(char from[], char to[]){
 
 
 void detab(char line[]){
-
+    int i = 0;
+    while((line[i]) != '\n') {
+        if(line[i] == '\t') {
+            int j = 0;
+            while(j < TOTAL_TABS) {
+                putchar(' ');
+                j++;
+            }
+        } else {
+            putchar(line[i]);
+        }
+        
+        i++;
+    }
 }
