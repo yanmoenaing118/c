@@ -17,13 +17,7 @@ int main() {
     char longest[MAX_LINE];
 
     while((len = getstring(line)) > 0) {
-        if(len > max) {
-            max = len;
-            copy(line, longest);
-            // printf("HELLO %d\n", len);
-        }
-        // printf("%s", line);
-        // printf("%d %d\n", len, max);
+       detab(line);
     }
 
     return 0;
@@ -60,7 +54,7 @@ void detab(char line[]){
     while((line[i]) != '\n') {
         if(line[i] == '\t') {
             int j = 0;
-            while(j < TOTAL_TABS) {
+            while(j < TAP_SPACES) {
                 putchar(' ');
                 j++;
             }
