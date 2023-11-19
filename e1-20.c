@@ -51,7 +51,7 @@ void copy(char from[], char to[]){
 
 void detab(char line[]){
     int i = 0;
-    while((line[i]) != '\n') {
+    while((line[i]) != '\0') {
         if(line[i] == '\t') {
             int j = 0;
             while(j < TAP_SPACES) {
