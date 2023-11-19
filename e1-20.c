@@ -1,48 +1,50 @@
-#include<stdio.h>
+#include <stdio.h>
 
-#define TAB_SPACES 4
 #define MAX_LINE 1000
 
+
 int getstring(char line[]);
-void detab(char line[]);
+void copy(char from[], char to[]);
 
-int main()
-{
+int main() {
+    int max, len;
+    max = 0;
+    len = 0;
     char line[MAX_LINE];
+    char longest[MAX_LINE];
 
-    printf("GET string\n");
-    
-
-    while (getstring(line))
-    {
-        printf("%s", line);
+    while((len = getstring(line)) > 0) {
+        if(len > max) {
+            max = len;
+            copy(line, longest);
+            // printf("HELLO %d\n", len);
+        }
+        // printf("%s", line);
+        // printf("%d %d\n", len, max);
     }
-    
 
-   
     return 0;
+
 }
 
-int getstring(char line[])
-{
-    char ch;
-    int i = 0;
-    while (i < MAX_LINE - 1 && ( ch = getchar()) != EOF && ch != '\n' ) line[i++] = ch;
 
-    if(ch == '\n') 
-    {
-        line[i] = ch;
+int getstring(char line[]) {
+    int c,i;
+    i = 0;
+    while( (c = getchar()) != EOF && i < MAX_LINE- 1 && c != '\n') {
+        line[i] = c;
         i++;
-        printf("here is new line\n");
+    }
+    if( c == '\n') {
+        line[i] = c;
+        i++;
     }
     line[i] = '\0';
+    printf("i = %d\n", i);
     return i;
 }
 
-
-void detab(char line[]) 
-{
-
+void copy(char from[], char to[]){ 
+    int i  = 0;
+    while((to[i] = from[i]) != '\0') ++i;
 }
-
-
