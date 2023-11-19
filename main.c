@@ -60,7 +60,6 @@ void detab(char line[]){
         } else {
             putchar(line[i]);
         }
-        
         i++;
     }
 }
