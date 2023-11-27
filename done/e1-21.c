@@ -5,6 +5,7 @@
 int main() {
     int ch;
     int blank_count = 0;
+    int inside_blank = 0;
     int columns = 0;
 
     while ((ch = getchar()) != EOF)
@@ -30,7 +31,6 @@ int main() {
         if(ch == '\n') 
         {
             columns = 0;
-            blank_count = 0;
         }
     }
     
