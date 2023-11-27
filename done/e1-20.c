@@ -1,67 +1,30 @@
 #include <stdio.h>
 
-#define MAX_LINE 1000
-#define TOTAL_TABS 100
-#define TAP_SPACES 5
-
-
-int getstring(char line[]);
-void copy(char from[], char to[]);
-void detab(char line[]);
+#define TABSTOP 4  // Number of spaces per tab
 
 int main() {
-    int max, len;
-    max = 0;
-    len = 0;
-    char line[MAX_LINE];
-    char longest[MAX_LINE];
+    int c;
+    int column = 0;
 
-    while((len = getstring(line)) > 0) {
-       detab(line);
+    while ((c = getchar()) != EOF) {
+        if (c == '\t') {
+            // Calculate the number of spaces needed to reach the next tab stop
+            int spaces = TABSTOP - (column % TABSTOP);
+
+            // Print the required number of spaces
+            for (int i = 0; i < spaces; ++i) {
+                putchar(' ');
+                ++column;
+            }
+        } else {
+            putchar(c);
+            if (c == '\n') {
+                column = 0;  // Reset column count at newline
+            } else {
+                ++column;
+            }
+        }
     }
 
     return 0;
-
-}
-
-
-int getstring(char line[]) {
-    int c,i;
-    i = 0;
-    while( (c = getchar()) != EOF && i < MAX_LINE- 1 && c != '\n') {
-        line[i] = c;
-        i++;
-    }
-    if( c == '\n') {
-        line[i] = c;
-        i++;
-    }
-    line[i] = '\0';
-    printf("i = %d\n", i);
-    return i;
-}
-
-
-
-void copy(char from[], char to[]){ 
-    int i  = 0;
-    while((to[i] = from[i]) != '\0') ++i;
-}
-
-
-void detab(char line[]){
-    int i = 0;
-    while((line[i]) != '\0') {
-        if(line[i] == '\t') {
-            int j = 0;
-            while(j < TAP_SPACES) {
-                putchar(' ');
-                j++;
-            }
-        } else {
-            putchar(line[i]);
-        }
-        
-        i++;
-    }
 }
