@@ -28,10 +28,10 @@ void remove_comments() {
 }
 
 int main() {
-    printf("Enter C code (Ctrl+D to stop):\n");
+    // printf("Enter C code (Ctrl+D to stop):\n");
     remove_comments();
 
-    printf("Comments removed successfully.\n");
+    // printf("Comments removed successfully.\n");
 
     return 0;
 }
