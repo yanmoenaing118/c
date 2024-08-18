@@ -1,2 +1,2 @@
-cc main.c
-./a.out
+cc main.c -o main
+./main
