@@ -1,57 +1,50 @@
 #include <stdio.h>
 
+#define MAXLINE 1000
+
+int my_getline(char line[], int limit);
+void copy(char to[], char from[]);
+
 int main()
 {
+    int len = 0;
+    char line[MAXLINE];
+    char max_line[MAXLINE];
+    int curr_len = 0;
 
-    int c,i;
-    char is_whitespace = 0;
-    int wlenght[10];
-    int index = 0;
-    int longest_word_length = 0;
-
-    for(i = 0 ; i < 10; i++ ) wlenght[i] =0;
-
-    while ((c = getchar()) != EOF)
+    while ( ( len = my_getline(line, MAXLINE)   ) > 0 )
     {
-        if (c == ' ' || c == '\t' || c == '\n')
+        if(len > curr_len)
         {
-            is_whitespace = 1;
+            curr_len =len;
+            copy(max_line, line);
         }
-        else if( is_whitespace )
-        {
-            index += 1; 
-            wlenght[index]++;
-            is_whitespace = 0;
-        } 
-        else 
-        {
-            wlenght[index]++;
-        }
+        
+    }
+    printf("%s\n", max_line);
+}
 
+
+int my_getline(char line[], int limit) 
+{
+    int i;
+    int c;
+
+    for(i = 0; i < limit - 1 && ( c = getchar() ) != EOF && c != '\n'; ++i ) line[i] = c;
+
+    if( c == '\n') 
+    {
+        line[i] = c;
+        ++i;
     }
 
-    for(i = 0 ; i < 10; i++ ) {
-        if(wlenght[i] > longest_word_length) {
-            longest_word_length = wlenght[i];
-        }
-    }
+    line[i] = '\0';
 
+    return i;
+}
 
-    printf("Verical Histogram of word length.\n");
-
-    for(i = 0 ; i < longest_word_length; i++) {
-        for(int j = 0 ; j < 10; j++ ){
-            int wordLength = wlenght[j];
-            if(i >= longest_word_length - wordLength && wordLength > 0) {
-                putchar('#');
-            } else {
-                putchar(' ');
-            }
-        }
-        putchar('\n');
-    }
-
-    printf("\n");
-
-    return 0;
+void copy(char to[], char from[])
+{
+    int i;
+    for(i = 0;(to[i] = from[i]) != '\0'; ++i);
 }
